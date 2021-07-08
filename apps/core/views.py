@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView, View
 from apps.core.form import PostForm
-from apps.core.models import Post
+from apps.core.models import *
 
 
 # Create your views here.
@@ -37,4 +37,11 @@ class Delete(DeleteView):
 	template_name='post/delete.html'
 	success_url=reverse_lazy('post:show')
 	
+class EncuentroCalendario(TemplateView):
+	"""docstring for Encuentro"""
+	template_name='encuentros.html'
 	
+
+class EncuentroAPI(View):
+	"""docstring for Encuentro"""
+	template_name='encuentro.html'

@@ -1,11 +1,10 @@
 {% extends "base/base_login.html" %}
 {% load static %}
-
 {%block title%}Login{%endblock%}
 {% block body %}
     {% block logo %}
     <div class="brand-logo" style="margin:auto 0px;align-items:center;align-content:center">
-        <img src="{% static 'style-login/images/logo.png'%}" style="width: 30%;margin:0 auto; position:relative;display:flex" alt="logo">
+        <img src="{% static 'landing/img/logo_1.jpg'%}" style="width: 30%;margin:0 auto; position:relative;display:flex" alt="logo">
     </div>
     {% endblock %}
     <!-- /.login-logo -->
@@ -64,7 +63,7 @@
                 </div>
             </div>
             <div class="my-1">
-                <button class="btn btn-block btn-primary btn-md font-weight-medium auth-form-btn">LOGIN</button>
+                <button class="btn btn-block btn-primary btn-md font-weight-medium auth-form-btn">Iniciar Sección</button>
             </div>
             <div class="mb-1 d-flex">
               <button type="button" class="btn btn-facebook auth-form-btn flex-grow mr-1">
@@ -74,9 +73,6 @@
                 <i class="mdi mdi-google mr-2"></i>Google
               </button>
             </div>
-            <!-- <div class="text-center mt-4 font-weight-light">
-              Don't have an account? <a href="register-2.html" class="text-primary">Create</a>
-            </div> -->
         </form>
     {% endblock login_form %}
 {% endblock %}

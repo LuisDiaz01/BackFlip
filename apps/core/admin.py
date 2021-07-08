@@ -1,15 +1,44 @@
 from django.contrib import admin
-from apps.core.models import Imagen, Rol, Tipo, Estado, Municipio, Estadio, Red, Persona, Club, Divicion, Equipo, Post
+from django.contrib.admin.models import LogEntry
+from django.contrib.admin.utils import quote
+from django.contrib.admin.views.main import ChangeList
+
+import apps.core.models 
+
 # Register your models here.
-admin.site.register(Imagen)
-admin.site.register(Rol)
-admin.site.register(Tipo)
-admin.site.register(Estado)
-admin.site.register(Municipio)
-admin.site.register(Estadio)
-admin.site.register(Red)
-admin.site.register(Persona)
-admin.site.register(Club)
-admin.site.register(Equipo)
-admin.site.register(Divicion)
-admin.site.register(Post)
+for modelo in dir(apps.core.models):
+	if getattr(apps.core.models, modelo).__class__.__name__== 'ModelBase' and getattr(apps.core.models, modelo).__class__.__name__ not in ['Encuentro','Club']:
+		try:
+			admin.site.register(getattr(apps.core.models, modelo))
+		except:
+			pass
+
+
+class LogEntryAdmin(admin.ModelAdmin):
+	readonly_fields=('content_type',
+		'user',
+		'action_time',
+		'object_id',
+		'object_repr',
+		'action_flag',
+		'change_message'
+		)
+	list_display=('action_flag','action_time','user','change_message','object_repr','object_id')
+
+	def has_delete_permission(self,request,obj=None):
+		return False
+
+class CalendarioChageList(ChangeList):
+	
+	def url_for_result(self):
+		return '/admin/core/calendario/'
+	
+	def get_model(self):
+		return self.model.__name__
+
+class CalendarioModelAdmin(admin.ModelAdmin):
+	def get_changelist(self, request, **kwargs):
+		return CalendarioChageList
+
+admin.site.register(LogEntry,LogEntryAdmin)
+# admin.site.register(apps.core.models.Encuentro, CalendarioModelAdmin)

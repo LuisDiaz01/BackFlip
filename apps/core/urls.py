@@ -1,11 +1,11 @@
 from django.urls import path, include
-from apps.core.views import List, Create, Update, Delete, Show
+from django.conf.urls import url
+from django.contrib.auth.decorators import login_required
+from apps.core.views import *
 app_name='core'
 urlpatterns=[
-	path('indexPost/',List.as_view(),name='index'),
-	path('createPost/',Create.as_view(),name='create'),
-	# path('edit/<int:pk>/',Edit.as_view(),name='edit'),
-	path('updatePost/<int:pk>/',Update.as_view(),name='update'),
-	path('deletePost/<int:pk>/',Delete.as_view(),name='delete'),
-	path('showPost/<int:id_mascota>/', Show, name='show'),
+	
+	path('calendario/', EncuentroCalendario.as_view(),name='encuentros_calendario'),
+	path('api/encuentros/',EncuentroAPI.as_view(),name='api-encuentro'),
+
 ]

@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.utils.functional import cached_property
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Imagen(models.Model):
@@ -15,14 +15,18 @@ class Imagen(models.Model):
     )
 	def __str__(self):
 		return f'{self.imagen}'
-
 # para las personas
 class Rol(models.Model):
 	"""docstring for Rol"""
-	rol=models.CharField(max_length=50)
+	rol=models.CharField(max_length=50,choices=(
+				('En','Entrenador'),
+				('Dir','Director'),
+				('Coo','Coordinador'),
+				('At','Atleta'),
+			)
+		)
 	def __str__(self):
 		return self.rol
-
 # para los pos
 class Tipo(models.Model):
 	"""docstring for Tipo"""
@@ -59,13 +63,18 @@ class Red(models.Model):
 
 class Persona(models.Model):
 	"""docstring for Persona"""
-	imagen = models.OneToOneField(Imagen,blank=True,on_delete=models.CASCADE)
+	imagen = models.ImageField(
+        upload_to='static/images/directivo',
+        null=True,
+        blank=True,
+        verbose_name='Img'
+    )
 	nombre=models.CharField(max_length=50)
 	apellido=models.CharField(max_length=50)
 	cedula=models.IntegerField(unique=True)
 	email=models.EmailField()
-	edad=models.IntegerField()
-	peso=models.IntegerField()
+	edad=models.IntegerField(null=True)
+	peso=models.IntegerField(null=True)
 	red=models.ForeignKey(Red,null=True,blank=True,on_delete=models.CASCADE)
 	rol=models.ForeignKey(Rol,null=True,blank=True,on_delete=models.CASCADE)
 	def __str__(self):
@@ -76,27 +85,36 @@ class Club(models.Model):
 	# imagen=models.ForeignKey(Imagen,null=True,blank=True,on_delete=models.CASCADE)
 	nombre=models.CharField(max_length=50)
 	# datos random
-	mision=models.TextField(default='')
-	historia=models.TextField(default='')
+	mision=models.TextField(null=True,default='')
+	historia=models.TextField(null=True,default='')
 	directivo=models.ManyToManyField(Persona,blank=True)
 	estadio=models.ForeignKey(Estadio,null=True,blank=True,on_delete=models.CASCADE)
 	email=models.EmailField(default='xxxxx@xxx.com')
 	red=models.ForeignKey(Red,null=True,blank=True,on_delete=models.CASCADE)
 	numero_telefono=models.CharField(max_length=50,default='')
 	direccion=models.ForeignKey(Municipio,null=True,blank=True,on_delete=models.CASCADE)
+	creado=models.DateTimeField(auto_now_add=True)
+	actualizado=models.DateTimeField(auto_now=True)
+
 	def __str__(self):
 		return self.nombre
 
 class Divicion(models.Model):
 	"""docstring for Divicion"""
-	name=models.CharField(max_length=50)
+	name=models.CharField(max_length=50,choices=(
+		('sub','12'),
+		('sub','14'),
+		('sub','16'),
+		('sub','18'),
+		('sub','21'),
+		)
+	)
 	def __str__(self):
 		return self.name
 
-class Equipo(models.Model):
-	"""docstring for Equipo"""
+class Parrilla(models.Model):
+	"""docstring for Parrilla"""
 	persona=models.ForeignKey(Persona,null=True,blank=True,on_delete=models.CASCADE)
-	club=models.ForeignKey(Club,null=True,blank=True,on_delete=models.CASCADE)
 	divicion=models.ForeignKey(
 		Divicion,
 		null=True,
@@ -106,6 +124,44 @@ class Equipo(models.Model):
 	def __str__(self):
 		return self.persona
 
+class Encuentro(models.Model):
+	"""docstring for Encuentro"""
+	nombre=models.CharField(max_length=50)
+	tipo_de_encuentro=models.CharField(max_length=50,choices=(
+		('A','Amistoso'),
+		('C','Clasificatorio'),
+		('E','Estadal'),
+		('N','Nacional'),
+		)
+	)
+	divicion=models.ForeignKey(Divicion,null=True,blank=True,on_delete=models.CASCADE)
+	equipo_casa=models.ForeignKey(Club,related_name='casa',null=True,blank=True,on_delete=models.CASCADE)
+	equipo_invitado=models.ForeignKey(Club,related_name='invitado',null=True,blank=True,on_delete=models.CASCADE)
+	goles_invitado=models.IntegerField(default=0)
+	goles_casa=models.IntegerField(default=0)
+	creado=models.DateTimeField(auto_now_add=True)
+	actualizado=models.DateTimeField(auto_now=True)
+	estatus=models.CharField(max_length=50,choices=(
+			('1','Pendiente'),
+			('1','Finalizado'),
+		), default='Pe'
+	)
+	def __str__(self):
+		return f'Encuentro:{self.nombre}'
+
+
+
+
+
+
+
+
+
+
+
+
+
+# esto es para el landing
 class Post(models.Model):
 	"""docstring for Post"""
 	title=models.CharField(max_length=50)

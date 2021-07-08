@@ -1,3 +1,247 @@
 {% extends 'landing/base/base.html' %}
 {%load static%}
-<!--  -->
+{% block "content" %}
+<!-- service_area  -->
+    <!-- <div class="service_area mt-0 pt-4 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-md-4">
+                    <div class=" text-center wow fadeInLeft" data-wow-duration="1.2s" data-wow-delay=".4s">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+                    </div>
+                </div>
+                <hr >
+                <div class="col-xl-9 col-md-8">
+                    <div class=" text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                      <span>
+                        <div class="icon">
+                            <img src="{% static '/landing/startup/img/svg_icon/2.svg' %}" alt="">
+                        </div>
+                        <h3>Web design</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+
+                      </span>
+                        vs
+                        <span>
+                          
+                        <div class="icon">
+                            <img src="{% static '/landing/startup/img/svg_icon/2.svg' %}" alt="">
+                        </div>
+                        <h3>Web design</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!--/ service_area  -->
+
+    
+
+    <!-- portfolio_image_area  -->
+    <div class="portfolio_image_area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section_title text-center mb-90">
+                        <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">Galeria
+                          <hr style="background-color:rgb(129,75,204);width:2em;margin-top:0px;padding-top:0px">
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div class="single_Portfolio wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                        <div class="portfolio_thumb">
+                            <img src="{% static '/landing/startup/img/slider_1.jpg' %}" alt="">
+                        </div>
+                        <div class="portfolio_hover">
+                            <div class="title">
+                <a class="boxed-btn3" href="#">Ver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_Portfolio wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+                        <div class="portfolio_thumb">
+                            <img src="{% static '/landing/startup/img/slider_2.jpg' %}" alt="">
+                        </div>
+                        <div class="portfolio_hover">
+                            <div class="title">
+                <a class="boxed-btn3" href="#">Ver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-lg-4">
+                    <div class="single_Portfolio wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+                        <div class="portfolio_thumb">
+                            <img src="{% static '/landing/startup/img/slider_3.jpg' %}" alt="">
+                        </div>
+                        <div class="portfolio_hover">
+                            <div class="title">
+                <a class="boxed-btn3" href="#">Ver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-lg-4">
+                    <div class="single_Portfolio wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
+                        <div class="portfolio_thumb">
+                            <img src="{% static '/landing/startup/img/slider_4.jpg' %}" alt="">
+                        </div>
+                        <div class="portfolio_hover">
+                            <div class="title">
+                <a class="boxed-btn3" href="#">Ver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-lg-4">
+                    <div class="single_Portfolio wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">
+                        <div class="portfolio_thumb">
+                            <img src="{% static '/landing/startup/img/slider_5.jpg' %}" alt="">
+                        </div>
+                        <div class="portfolio_hover">
+                            <div class="title">
+                <a class="boxed-btn3" href="#">Ver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    
+
+    <div class="about_area">
+      <div class="container">
+        <div class="row justify-content-end">
+          <div class="col-lg-5 offset-lg-1">
+            <div class="about_info">
+              <div class="section_title white_text">
+                <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                  Club
+                </h3>
+                <h4 class="wow fadeInUp text-white" style="text-align:center" data-wow-duration="1s" data-wow-delay=".4s">Historia 
+                <hr style="background-color:white;text-align:left;width:2rem">
+                </h4>
+                <p class="mid_text wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt officiis quas repellendus reprehenderit accusantium.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- team_member_start -->
+    <div class="team_area ">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section_title text-center mb-90">
+                        <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">Directivos
+                        <hr style="background-color:rgb(129,75,204);width:2em;margin-top:0px;padding-top:0px">
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_team wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                        <div class="team_thumb">
+                            <img src="{% static '/landing/startup/img/team/1.png' %}" alt="">
+                            <div class="team_hover">
+                                <div class="hover_inner text-center">
+                                    <ul>
+                                        <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
+                                        <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
+                                        <li><a href="#"> <i class="fa fa-instagram"></i> </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team_title text-center">
+                            <h3>Brandon Yeald</h3>
+                            <p>Entrenador</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_team wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+                        <div class="team_thumb">
+                            <img src="{% static '/landing/startup/img/team/2.png' %}" alt="">
+                            <div class="team_hover">
+                                <div class="hover_inner text-center">
+                                    <ul>
+                                        <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
+                                        <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
+                                        <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team_title text-center">
+                            <h3>Calvin Anderson</h3>
+                            <p>Entrenador</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_team wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
+                        <div class="team_thumb">
+                            <img src="{% static '/landing/startup/img/team/3.png' %}" alt="">
+                            <div class="team_hover">
+                                <div class="hover_inner text-center">
+                                    <ul>
+                                        <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
+                                        <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
+                                        <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team_title text-center">
+                            <h3>Roman Solo</h3>
+                            <p>Presidente</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ team_member_end -->
+
+    <!-- testimonial_area  -->
+    <div class="testimonial_area ">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="testmonial_active owl-carousel">
+              <div class="single_carousel">
+                <div class="single_testmonial text-center">
+                  <div class="quote">
+                    <img src="{% static '/landing/startup/img/testmonial/quote.svg' %}" alt="">
+                  </div>
+                  <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br> 
+                    sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.  <br>
+                  Fusce ac mattis nulla. Morbi eget ornare dui. </p>
+                  <div class="testmonial_author">
+                    <h3>Cristiano Ronaldo</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

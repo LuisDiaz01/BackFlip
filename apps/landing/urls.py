@@ -1,8 +1,7 @@
 from django.urls import path, include
-from apps.landing.views import index, index2, club_info
+from apps.landing.views import Index, club_info
 app_name='landing'
 urlpatterns=[
-	path('', index, name='index'),
-	path('index2', index2, name='index2'),
+	path('', Index.as_view(), name='index'),
 	path('club', club_info, name='club_info'),
 ]

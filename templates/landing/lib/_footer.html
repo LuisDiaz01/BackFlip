@@ -1,60 +1,80 @@
 {% load static %}
 <!-- ***** Contact Us Area Start ***** -->
-    <section class="footer-contact-area section_padding_100 clearfix" id="contact">
+<footer class="footer">
+    <div class="footer_top" style="padding-top:2rem">
         <div class="container">
-            <div class="row">
-                <div class="col-md">
-                    <!-- Heading Text  -->
-                    <div class="section-heading">
-                        <h2>Get in touch with us!</h2>
-                        <div class="line-shape"></div>
-                    </div>
-                    <div class="footer-text">
-                        <p>We'll send you epic weekly blogs, whitepapers and things to make your app startup thrive, all FREE!</p>
-                    </div>
-                    <div class="address-text">
-                        <p><span>Address:</span> 40 Baria Sreet 133/2 NewYork City, US</p>
-                    </div>
-                    <div class="phone-text">
-                        <p><span>Phone:</span> +11-225-888-888-66</p>
-                    </div>
-                    <div class="email-text">
-                        <p><span>Email:</span> info.deercreative@gmail.com</p>
+            <div class="row align-items-center">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer_logo wow fadeInRight" style="text-align:center!important;margin-bottom:2rem;padding-bottom:1rem!important;width:10rem;height:10rem;margin:0px auto" data-wow-duration="1s" data-wow-delay=".3s">
+                        <a href="index.html">
+                            <img style="width:100%;height:100%;border-radius:50%;text-align:center;margin:0px auto" src="{% static '/landing/img/logo_1.jpg' %}" alt="">
+                        </a>
                     </div>
                 </div>
-               <!--  -->
+                <div class="col-lg-4"></div>
+            </div>
+            <div class="row align-items-center" style="margin-bottom:2rem">
+                <div class="col-xl-4 col-lg-4 col-md-4 wow fadeInRight">
+                    <h3 class="text-center text-white">Pagina</h3>
+                    <hr style="background-color:white; width:2em;">
+                    <ul class="text-white">
+                        <li><a class="text-white" href="{% url 'landing:index' %}">Inicio</a></li>
+                        <li><a class="text-white" href="{% url 'landing:club_info' %}">El Club</a></li>
+                        <li><a class='text-white' href="#">Plantilla</a></li>
+                        <li><a class='text-white' href="#">Calendario</a></li>
+                        <li><a class='text-white' href="#">Perfiles</a></li>
+                        <li><a class='text-white' href="#">Contactos</a></li>
+                    </ul>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 wow fadeInRight">
+                    <h3 class="text-center text-white">Club</h3>
+                    <hr style="background-color:white; width:2em;">
+                    <ul class="text-white">
+                        <li>a</li>
+                        <li>a</li>
+                        <li>a</li>
+                        <li>a</li>
+                        <li>a</li>
+                    </ul>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 wow fadeInRight">
+                    <h3 class="text-center text-white">Dirección</h3>
+                    <hr style="background-color:white; width:2em;">
+                    <ul class="text-white">
+                        <li>Nombre{{ club.nombre | default_if_none:"Nombre" }}</li>
+                        <li>Nombre{{ club.nombre }}</li>
+                        <li>a</li>
+                        <li>a</li>
+                        <li>a</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="socail_links" style="text-align: center!important;">
+                        <ul>
+                            <li><a class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s" href="#"> <i class="fa fa-facebook"></i> </a></li>
+                            <li><a class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s" href="#"> <i class="fa fa-twitter"></i> </a></li>
+                            <li><a class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s" href="#"> <i class="fa fa-instagram"></i> </a></li>
+                            <li><a class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s" href="#"> <i class="fa fa-google-plus"></i> </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4"></div>
             </div>
         </div>
-    </section>
-    <!-- ***** Contact Us Area End ***** -->
-
-    <!-- ***** Footer Area Start ***** -->
-    <footer class="footer-social-icon text-center section_padding_70 clearfix">
-        <!-- footer logo -->
-        <div class="footer-text">
-            <h2>{{ context }}.</h2>
+    </div>
+    <div class="copy-right_text">
+        <div class="container">
+            <div class="footer_border"></div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <p class="copy_right text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.3s">Copyright &copy;{% now 'Y' %}</p>
+                </div>
+            </div>
         </div>
-        <!-- social icon-->
-        <div class="footer-social-icon">
-            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            <a href="#"><i class="active fa fa-twitter" aria-hidden="true"></i></a>
-            <a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-        </div>
-        <div class="footer-menu">
-            <nav>
-                <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Terms &amp; Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-        <!-- Foooter Text-->
-        <div class="copyright-text">
-            <!-- ***** Removing this text is now allowed! This template is licensed under CC BY 3.0 ***** -->
-            <p>Copyright {% now "Y" %}. Designed by <a href="https://jesusestebn12321.github.io" target="_blank">Root12321</a></p>
-        </div>
-    </footer>
-    <!-- ***** Footer Area Start ***** -->
+    </div>
+</footer>
+<!-- ***** Footer Area Start ***** -->
